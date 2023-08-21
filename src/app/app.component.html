@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<div class="container">
+  <h2>Chart Selector</h2>
+  <div class="d-flex justify-content-between gap-1 w-100">
+    <button *ngFor="let type of chartTypes" class="btn" [class.btn-primary]="type.value === selectedChartType"
+      [class.btn-secondary]="type.value !== selectedChartType" (click)="onSelect(type.value)">{{type.name}}</button>
+  </div>
+
+  <app-chart-selector></app-chart-selector>
+</div>
