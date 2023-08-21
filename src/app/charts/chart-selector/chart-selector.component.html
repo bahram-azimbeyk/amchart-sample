@@ -1,0 +1,26 @@
+<div *ngIf="chartModel">
+  <app-column-bar-chart *ngIf="chartModel.chartType === 'column'" [chartModel]="chartModel"></app-column-bar-chart>
+
+  <app-clustered-bar-chart *ngIf="chartModel.chartType === 'clustered'"
+    [chartModel]="chartModel"></app-clustered-bar-chart>
+
+  <app-stacked-bar-chart *ngIf="chartModel.chartType === 'stacked'" [chartModel]="chartModel"></app-stacked-bar-chart>
+
+  <div class="d-flex justify-content-between gap-1">
+    <button class="btn btn-success" (click)="sortChartData('xAxis','asc')">
+      Sort "X" axis A to Z
+    </button>
+
+    <button class="btn btn-success" (click)="sortChartData('xAxis','desc')">
+      Sort "X" axis Z to A
+    </button>
+
+    <button *ngIf="chartModel.chartType === 'column'" class="btn btn-success" (click)="sortChartData('yAxis','asc')">
+      Sort "Y" axis accending
+    </button>
+
+    <button *ngIf="chartModel.chartType === 'column'" class="btn btn-success" (click)="sortChartData('yAxis','desc')">
+      Sort "Y" axis decending
+    </button>
+  </div>
+</div>
